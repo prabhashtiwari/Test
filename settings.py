@@ -6,11 +6,11 @@ import string
 
 def init():
 
-    global MAC 
-    MAC = "00:00:00:00:00:00"
+    global SERVER_MAC 
+    SERVER_MAC = "00:00:00:00:00:00"
     random_key = ''.join([random.choice(string.ascii_letters + string.digits) for n in range(32)]) 
     global CLIENT_ID
-    CLIENT_ID = "TEST_"+str(MAC)+"_"+ str(random_key)
+    CLIENT_ID = "TEST_"+str(SERVER_MAC)+"_"+ str(random_key)
     global SERVER_IP
     SERVER_IP = "server_ip"
     global SERVER_PORT
@@ -23,13 +23,6 @@ def init():
     VER = "Ver1.1"
     global thread_flag
     thread_flag = ['True'] 
+    # Wildcard topic
     global TOPIC_IN
-    TOPIC_IN = "Test/"+str(MAC)+"/in"
-    global TOPIC_OUT
-    TOPIC_OUT = "Test/"+str(MAC)+"/out"
-    # "Save csv data into array" 
-    global SENSOR_DATA
-    SENSOR_DATA=[]
-    # "Save buffered data into array" 
-    global BUFFERED_DATA
-    BUFFERED_DATA=[]
+    TOPIC_IN = "Test/+/in"
